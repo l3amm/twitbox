@@ -1,0 +1,3 @@
+include twitbox/config/deployment.ini_tmpl
+recursive-include twitbox/public *
+recursive-include twitbox/templates *
