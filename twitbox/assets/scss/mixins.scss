@@ -1,0 +1,77 @@
+$screen-color: #F0B510;
+$evaluate-color: #2BA9C2;
+$decide-color: #D0C200;
+$hired-color: #ADD041;
+$light-grey: #F5F5F5;
+$highlight-row: #E8EFEF;
+
+
+// Sitewide colors
+$background-color: #EDE8EA;
+$red-accent: #f35555;
+$yellow-accent: #FFFFCC;
+$grey-base: #A69C93;
+$dark-grey: #343434;
+$red-error: #A33;
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: '.';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+    clear: both;
+    zoom: 1;
+  }
+}
+
+@mixin button-gradient($from, $to) {
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background: -moz-linear-gradient(top,  $from, $to);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+@mixin box-sizing($bs) {
+  $bs: unquote($bs);
+  -webkit-box-sizing: $bs;
+  -khtml-box-sizing: $bs;
+  -moz-box-sizing: $bs;
+  -ms-box-sizing: $bs;
+  -o-box-sizing: $bs;
+  box-sizing: $bs;
+}
+
+@mixin shadow($size){
+  -webkit-box-shadow: 0 0 $size #999;
+  -moz-box-shadow: 0 0 $size #999;
+  box-shadow: 0 0 $size #999;
+}
+
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin selectable {
+  -webkit-touch-callout: auto;
+  -webkit-user-select: auto;
+  -khtml-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+@mixin radius($radius){
+  -webkit-border-radius:$radius;
+  -moz-border-radius:$radius;
+  border-radius:$radius;
+}
