@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 from pylons import app_globals
+import urllib
+import random
 
 from dropbox import client, rest, session
 
@@ -24,4 +26,6 @@ class TwitterParser():
     def instagram_parser(self, html):
         soup = BeautifulSoup(html)
         for img in soup.find_all('img', class_='photo'):
-            print img['src']
+            resp = urllib.urlretrieve(img['src'])
+            f = open(resp[0])
+            self.drop_client.put_file(str(random.randint(1,100))+'.jpeg', f)
