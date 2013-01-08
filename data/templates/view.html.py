@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 8
-_modified_time = 1357607204.944007
+_modified_time = 1357608454.283028
 _enable_loop = True
 _template_filename = '/Users/tonthat/Desktop/sandbox/pylons/twitbox/twitbox/templates/view.html'
 _template_uri = '/view.html'
@@ -20,7 +20,7 @@ def render_body(context,**pageargs):
         tweets = context.get('tweets', UNDEFINED)
         __M_writer = context.writer()
         # SOURCE LINE 1
-        __M_writer(u'<html>\n<head>\n  <title>FOOO</title>\n  <link rel="stylesheet" href="/css/app.css">\n</head>\n<body>\n')
+        __M_writer(u'<html>\n<head>\n  <title>TwitBox</title>\n  <link rel="stylesheet" href="/css/app.css">\n</head>\n<body>\n')
         # SOURCE LINE 7
         for tweet in tweets:
             # SOURCE LINE 8
