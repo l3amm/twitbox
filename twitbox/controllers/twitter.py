@@ -1,7 +1,8 @@
 import logging
 import tweepy
-import urllib2
+import requests
 import re
+import twitbox.lib.helpers as h
 
 from pylons import request, response, session, tmpl_context as c, url
 from pylons import app_globals
@@ -26,12 +27,13 @@ class TwitterController(BaseController):
         else:
             abort(404)
         resp = ''
-        
+        parser = TwitterParser()
         for tweet in tweets:
             m = re.search('http.*(\s+|$)', tweet.text)
             if m:
-                response = urllib2.urlopen(m.group(0))
-                html = response.read()
+                r = requests.get(m.group(0))
+                print r.text
+                
                 
             resp += tweet.text
             resp += "\n"
