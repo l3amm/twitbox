@@ -41,6 +41,6 @@ class TwitterController(BaseController):
         # resp = urllib2.urlopen('http://instagr.am/p/UIcpAETN73/')
         # html = resp.read()
         
-        media = tparse.test()
+        media = tparse.list_media()
         
         return render("/view.html", extra_vars={'tweets': tweets, 'media': media})
