@@ -45,6 +45,7 @@ class TwitterParser():
         if re.search('instagram', url):
             self.instagram_parser(content)
         elif re.search('youtube', url):
+            print "youtube"
             # self.youtube_parser(url)
         else:
             print " nothing to see here"
