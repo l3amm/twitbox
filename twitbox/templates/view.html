@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>TwitBox</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  % for tweet in tweets:
+    <div class="tweet">
+      ${tweet.text}
+    </div>
+  % endfor
+</body>
+</html>

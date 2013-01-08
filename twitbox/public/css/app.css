@@ -1,0 +1,17 @@
+body {
+  font-family: georgia;
+  background-color: #afdfff;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.tweet {
+  background-color: #fff;
+  border: 2px #9cf solid;
+  padding: 20px;
+  width: 300px;
+  margin: auto;
+  margin-bottom: 5px;
+}
