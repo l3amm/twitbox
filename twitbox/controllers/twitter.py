@@ -28,14 +28,14 @@ class TwitterController(BaseController):
         resp = ''
         
         for tweet in tweets:
-            m = re.search('http.*(\s+|$)', tweet.text)
-            if m:
-                response = urllib2.urlopen(m.group(0))
-                html = response.read()
+            # m = re.search('http.*(\s+|$)', tweet.text)
+            # if m:
+            #     response = urllib2.urlopen(m.group(0))
+            #     html = response.read()
                 
             resp += tweet.text
             resp += "\n"
         # resp = urllib2.urlopen('http://instagr.am/p/UIcpAETN73/')
         # html = resp.read()
         
-        return resp
+        return render("/view.html", extra_vars={'tweets': tweets})
