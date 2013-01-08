@@ -35,18 +35,18 @@ class TwitterParser():
             f = open(resp[0])
             self.drop_client.put_file(str(random.randint(1,100))+'.jpeg', f)
     
-    def youtube_parser(self, url):
-        yt = YouTube()
-        yt.url = url
-        yt.videos[0].download('/tmp/')
-        f = open(glob.glob('/tmp/'+yt.filename+'*')[0])
-        self.drop_client.put_file(os.path.basename(f.name), f)
+    # def youtube_parser(self, url):
+    #     yt = YouTube()
+    #     yt.url = url
+    #     yt.videos[0].download('/tmp/')
+    #     f = open(glob.glob('/tmp/'+yt.filename+'*')[0])
+    #     self.drop_client.put_file(os.path.basename(f.name), f)
     
     def parse(self, url, content):
         if re.search('instagram', url):
             self.instagram_parser(content)
         elif re.search('youtube', url):
-            self.youtube_parser(url)
+            # self.youtube_parser(url)
         else:
             print " nothing to see here"
 

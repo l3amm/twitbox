@@ -1,6 +1,7 @@
 (function() {
+  var _ref;
 
-  if (window.Templates == null) {
+  if ((_ref = window.Templates) == null) {
     window.Templates = {};
   }
 
@@ -9,7 +10,7 @@
       var $o;
       $o = [];
       $o.push("<h1>Hello World</h1>");
-      return $o.join("\n").replace(/\s(\w+)='true'/mg, ' $1').replace(/\s(\w+)='false'/mg, '');
+      return $o.join("\n");
     }).call(context);
   };
 
