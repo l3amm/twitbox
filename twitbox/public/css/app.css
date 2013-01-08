@@ -7,11 +7,46 @@ div {
   box-sizing: border-box;
 }
 
-.tweet {
+#tweets { }
+#tweets .tweet {
   background-color: #fff;
   border: 2px #9cf solid;
   padding: 20px;
   width: 300px;
   margin: auto;
   margin-bottom: 5px;
+}
+
+#media-box {
+  margin: auto;
+  width: 600px;
+  padding: 20px;
+  border: 10px #9cf solid;
+}
+
+#media-box:before, #media-box:after {
+  /* Clearfix */
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+  clear: both;
+  zoom: 1;
+}
+
+#media-box .pic {
+  float: left;
+  width: 110px;
+  height: 110px;
+  border: 5px #eee solid;
+  margin: 10px;
+}
+
+#media-box .pic img {
+  width: 100px;
+  height: 100px;
 }

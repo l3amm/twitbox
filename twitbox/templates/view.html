@@ -4,10 +4,20 @@
   <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-  % for tweet in tweets:
-    <div class="tweet">
-      ${tweet.text}
-    </div>
-  % endfor
+  <div id="tweets">
+    % for tweet in tweets:
+      <div class="tweet">
+        ${tweet.text}
+      </div>
+    % endfor
+  </div>
+  
+  <div id="media-box">
+    % for m in media:
+      <div class="pic">
+        <a href="${m}"><img src="${m}"/></a>
+      </div>
+    % endfor
+  </div>
 </body>
 </html>
