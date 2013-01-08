@@ -3,11 +3,11 @@ import tweepy
 import requests
 import re
 import twitbox.lib.helpers as h
+import twitbox.lib.parser as parser
 
 from pylons import request, response, session, tmpl_context as c, url
 from pylons import app_globals
 from pylons.controllers.util import abort, redirect
-from twitbox.lib.parser import TwitterParser
 
 from twitbox.lib.base import BaseController, render
 
@@ -27,12 +27,13 @@ class TwitterController(BaseController):
         else:
             abort(404)
         resp = ''
-        parser = TwitterParser()
+        tparse = parser.TwitterParser()
         for tweet in tweets:
             m = re.search('http.*(\s+|$)', tweet.text)
             if m:
                 r = requests.get(m.group(0))
-                print r.text
+                if re.search('instagram', r.url):
+                    tparse.instagram_parser(r.text)
                 
             resp += tweet.text
             resp += "\n"
