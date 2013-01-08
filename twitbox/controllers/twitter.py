@@ -35,8 +35,7 @@ class TwitterController(BaseController):
                 tparse.parse(r.url, r.text)
             resp += tweet.text
             resp += "\n"
-        # resp = urllib2.urlopen('http://instagr.am/p/UIcpAETN73/')
-        # html = resp.read()
         
+        media = tparse.list_media()
         
-        return render("/view.html", extra_vars={'tweets': tweets})
+        return render("/view.html", extra_vars={'tweets': tweets, 'media': media})

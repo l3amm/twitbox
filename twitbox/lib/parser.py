@@ -30,6 +30,7 @@ class TwitterParser():
     def instagram_parser(self, html):
         soup = BeautifulSoup(html)
         for img in soup.find_all('img', class_='photo'):
+            print img['src']
             resp = urllib.urlretrieve(img['src'])
             f = open(resp[0])
             self.drop_client.put_file(str(random.randint(1,100))+'.jpeg', f)
@@ -48,4 +49,11 @@ class TwitterParser():
             self.youtube_parser(url)
         else:
             print " nothing to see here"
-        
+
+    def list_media(self):
+        files = self.drop_client.metadata("/")["contents"]
+        media = []
+        for f in files:
+            media.append(self.drop_client.media(f['path'])['url'])
+
+        return media
