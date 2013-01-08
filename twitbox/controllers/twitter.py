@@ -8,10 +8,6 @@ import twitbox.lib.parser as parser
 from pylons import request, response, session, tmpl_context as c, url
 from pylons import app_globals
 from pylons.controllers.util import abort, redirect
-<<<<<<< HEAD
-=======
-# from twitbox.lib.parser import TwitterParser
->>>>>>> 85db4326892311a2e0016c138799f7288196e89a
 
 from twitbox.lib.base import BaseController, render
 
@@ -44,4 +40,4 @@ class TwitterController(BaseController):
         # html = resp.read()
         
         
-        return render("/view.html", extra_vars={'tweets': tweets, 'urls': urls})
+        return render("/view.html", extra_vars={'tweets': tweets})
