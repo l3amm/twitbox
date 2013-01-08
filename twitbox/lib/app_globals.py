@@ -17,6 +17,4 @@ class Globals(object):
         """
         self.DROPBOX_APP_KEY = "jtnr5188cxxn120"
         self.DROPBOX_APP_SECRET = "yz9rwnfkby86geu"
-        self.TEMP_KEY = 'l7t4ujaqntowwff'
-        self.TEMP_SECRET = 'cq29txoi4pkt3r3'
         self.cache = CacheManager(**parse_cache_config_options(config))

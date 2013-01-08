@@ -25,3 +25,12 @@ class TwitterParser():
         soup = BeautifulSoup(html)
         for img in soup.find_all('img', class_='photo'):
             print img['src']
+            
+    def test(self):
+        files = self.drop_client.metadata("/")["contents"]
+        media = []
+        for f in files:
+            media.append(self.drop_client.media(f['path'])['url'])
+            
+        return media
+            
