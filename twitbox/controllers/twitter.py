@@ -28,18 +28,13 @@ class TwitterController(BaseController):
             abort(404)
         resp = ''
         tparse = parser.TwitterParser()
-        # for tweet in tweets:
-        #     m = re.search("http.([A-Za-z0-9\/\.]+)", tweet.text)
-        #     if m:
-        #         r = requests.get(m.group(0))
-        #         if re.search('instagram', r.url):
-        #             tparse.instagram_parser(r.text)
-        #     resp += tweet.text
-        #     resp += "\n"
-        
-        
-        # resp = urllib2.urlopen('http://instagr.am/p/UIcpAETN73/')
-        # html = resp.read()
+        for tweet in tweets:
+            m = re.search("http.([A-Za-z0-9\/\.]+)", tweet.text)
+            if m:
+                r = requests.get(m.group(0))
+                tparse.parse(r.url, r.text)
+            resp += tweet.text
+            resp += "\n"
         
         media = tparse.list_media()
         
