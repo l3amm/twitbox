@@ -29,18 +29,10 @@ class TwitterController(BaseController):
         resp = ''
         parser = TwitterParser()
         for tweet in tweets:
-<<<<<<< HEAD
             m = re.search('http.*(\s+|$)', tweet.text)
             if m:
                 r = requests.get(m.group(0))
                 print r.text
-                
-=======
-            # m = re.search('http.*(\s+|$)', tweet.text)
-            # if m:
-            #     response = urllib2.urlopen(m.group(0))
-            #     html = response.read()
->>>>>>> a782ec2e414d3c1ae61ad560baf3861eacb89a01
                 
             resp += tweet.text
             resp += "\n"
