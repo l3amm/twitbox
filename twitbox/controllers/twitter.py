@@ -20,8 +20,8 @@ class TwitterController(BaseController):
         #return render('/twitter.mako')
         # or, return a string
         return 'Hello World'
-
-    def view(self, id):
+        
+    def fetch(self, id):
         if id:
             tweets = tweepy.api.user_timeline(id)
         else:
@@ -32,12 +32,11 @@ class TwitterController(BaseController):
             m = re.search("http.([A-Za-z0-9\/\.]+)", tweet.text)
             if m:
                 r = requests.get(m.group(0))
-                if re.search('instagram', r.url):
-                    tparse.instagram_parser(r.text)
-            resp += tweet.text
-            resp += "\n"
-        # resp = urllib2.urlopen('http://instagr.am/p/UIcpAETN73/')
-        # html = resp.read()
+                self.tparse.parse(r.url, r.text)
+        redirect_to(controller='TwitterController', action='view')
+
+    def view(self, id):
+        tparse = parser.TwitterParser()
+        media = tparse.list_media()
         
-        
-        return render("/view.html", extra_vars={'tweets': tweets})
+        return render("/view.html", extra_vars={'media': media})

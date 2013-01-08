@@ -1,5 +1,10 @@
 from bs4 import BeautifulSoup
 from pylons import app_globals
+import urllib
+import random
+import re
+import glob
+import os
 
 from dropbox import client, rest, session
 
@@ -25,3 +30,30 @@ class TwitterParser():
         soup = BeautifulSoup(html)
         for img in soup.find_all('img', class_='photo'):
             print img['src']
+            resp = urllib.urlretrieve(img['src'])
+            f = open(resp[0])
+            self.drop_client.put_file(str(random.randint(1,100))+'.jpeg', f)
+    
+    # def youtube_parser(self, url):
+    #     yt = YouTube()
+    #     yt.url = url
+    #     yt.videos[0].download('/tmp/')
+    #     f = open(glob.glob('/tmp/'+yt.filename+'*')[0])
+    #     self.drop_client.put_file(os.path.basename(f.name), f)
+    
+    def parse(self, url, content):
+        if re.search('instagram', url):
+            self.instagram_parser(content)
+        elif re.search('youtube', url):
+            print "youtube"
+            # self.youtube_parser(url)
+        else:
+            print " nothing to see here"
+
+    def list_media(self):
+        files = self.drop_client.metadata("/")["contents"]
+        media = []
+        for f in files:
+            media.append(self.drop_client.media(f['path'])['url'])
+
+        return media

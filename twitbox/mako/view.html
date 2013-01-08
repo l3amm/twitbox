@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>TwitBox</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  
+  <div id="media-box">
+    % for m in media:
+      <div class="pic">
+        <a href="${m}"><img src="${m}"/></a>
+      </div>
+    % endfor
+  </div>
+</body>
+</html>
