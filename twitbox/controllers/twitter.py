@@ -35,10 +35,8 @@ class TwitterController(BaseController):
             if m:
                 r = requests.get(m.group(0))
                 print r.text
-                
                 # long_url = h.get_redirected_url(m.group(0))
                 # urls.append(long_url)
-                
             resp += tweet.text
             resp += "\n"
         # resp = urllib2.urlopen('http://instagr.am/p/UIcpAETN73/')
