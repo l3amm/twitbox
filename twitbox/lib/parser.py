@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 from pylons import app_globals
-from pytube import YouTube
 import urllib
 import random
 import re
